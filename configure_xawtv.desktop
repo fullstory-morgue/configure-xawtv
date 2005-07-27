@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/usr/bin/xawtv.wrapper reconfigure
+Name[de]=Fernsehsender konfigurieren
+Name[es]=Configurar los canales de TV
+Name=configure tv channels
+Icon=xawtv
+Type=Application

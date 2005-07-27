@@ -1,0 +1,89 @@
+configure-xawtv (0.1.9) unstable; urgency=low
+
+  * fix lintian errors.
+  * update CARDLIST to 2.6.13-rc3-git6.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 27 Jul 2005 10:51:54 +0200
+
+configure-xawtv (0.1-8+kanotix3) unstable; urgency=low
+
+  * change icon. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 17 Dec 2004 16:14:44 +0100
+
+configure-xawtv (0.1-8+kanotix2) unstable; urgency=low
+
+  * minor packaging fixes.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 16 Dec 2004 00:06:20 +0100
+
+configure-xawtv (0.1-8+kanotix1) unstable; urgency=low
+
+  * Forked for Kanotix.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 15 Dec 2004 21:45:01 +0100
+
+configure-xawtv (0.1-8) unstable; urgency=low
+
+  * Added CARDLIST from kernel 2.4.26 
+
+ -- Joerg Schirottke <master@kanotix.com>  Tue, 27 Jul 2004 01:42:09 +0200
+
+configure-xawtv (0.1-7) unstable; urgency=low
+
+  * Fixed choose of tuner (thx to Guentcho Skordev
+    <Guentcho.Skordev@stud.uni-karlsruhe.de>)
+  * Fixed wrong message for choice of tuner.
+    (thx to Guentcho Skordev <Guentcho.Skordev@stud.uni-karlsruhe.de>)
+  * Added parsing of command line options to wrapper
+
+ -- Klaus Knopper <knopper@knopper.net>  Tue, 30 Mar 2004 17:35:11 +0200
+
+configure-xawtv (0.1-6) unstable; urgency=low
+
+  * Added spanish translations by Sergio Gonzalez,
+    <sergio.gonzalez@hispalinux.es>
+  * Added support for an cancel of the search operation
+    (in america they often have more then 100 channels, 
+    which take long to find)
+
+ -- Fabian Franz <knx-@fabian-franz.de>  Thu, 24 Apr 2003 11:57:00 +0200
+
+configure-xawtv (0.1-5) unstable; urgency=low
+
+  * Changed paths to Config/TV-Card/
+
+ -- Fabian Franz <knx-@fabian-franz.de>  Tue, 22 Apr 2003 14:11:08 +0200
+
+configure-xawtv (0.1-4) unstable; urgency=low
+
+  * Fixed severe blunder in configure_bttv. (It did not work from menu, as
+    modprobe was not in standardpath) 
+
+ -- Fabian Franz <knx-@fabian-franz.de>  Tue, 15 Apr 2003 17:37:35 +0200
+
+configure-xawtv (0.1-3) unstable; urgency=low
+
+  * Added possibility to watch what happens.
+
+  * Added checks so that an existing .xawtv is not overwritten until
+    everything succeeded.
+
+  * Changed names in configure_xawtv.desktop
+
+ -- Fabian Franz <knx-@fabian-franz.de>  Tue, 15 Apr 2003 17:25:14 +0200
+
+configure-xawtv (0.1-2) unstable; urgency=low
+
+  * Added configure_bttv script. (somewhat knoppix specific as it uses sudo)
+  
+  * Some sh-incompatibilities found by Klaus Knopper.
+
+ -- Fabian Franz <knx-xawtv@fabian-franz.de>  Tue, 15 Apr 2003 14:44:29 +0200
+
+configure-xawtv (0.1-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Fabian Franz <knx-xawtv@fabian-franz.de>  Mon, 14 Apr 2003 22:57:39 +0200
+

@@ -1,0 +1,76 @@
+#!/bin/bash
+#
+# Configure bttv card for knoppix
+#
+# License: GPL
+#
+# Author: Fabian Franz <knx-xawtv@fabian-franz.de>
+#
+# Spanish translation by Sergio González, <sergio.gonzalez@hispalinux.es>
+
+clean_exit(){
+  [ -f "$TMP" ] && rm -f "$TMP"
+}
+
+GCARDLIST="/usr/share/configure-bttv/CARDLIST"
+
+trap clean_exit EXIT
+
+TMP="/tmp/configure_bttv.$$"
+
+DIALOG="dialog"
+[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+XDIALOG_HIGH_DIALOG_COMPAT=1
+export XDIALOG_HIGH_DIALOG_COMPAT
+
+[ -f /etc/sysconfig/i18n ] && . /etc/sysconfig/i18n
+
+MAX=3
+
+case "$LANGUAGE" in
+   de*|at*|ch*)
+     BT="Fernsehkarten-Konfiguration"
+     T1="Einrichtung der Fernsehkarte (Schritt 0/$MAX)"
+     MESSAGE1="Bitte wählen Sie Ihre Fernsehkarte aus der Liste aus."
+     MESSAGE2="Bitte wählen Sie den Typ Ihres Tuners."
+     MESSAGE3="Das Skript wird jetzt versuchen die nötigen Module mit diesen Parametern zu laden und anschließend xawtv starten."
+     ;;
+   es)
+     BT="Configuración de la tarjeta de TV"
+     T1="Configuración inicial de la tarjeta de televisión (Paso 0/$MAX)"
+     MESSAGE1="Por favor, seleccione una tarjeta de televisión de la lista."
+     MESSAGE2="Por favor, seleccione el tipo de sintonizador."
+     MESSAGE3="El script intentará cargar los módulos necesarios, con estos parámetros . Después arrancará xawtv." 
+    ;;
+   *)
+     BT="TV-Card-Configuration"
+     T1="Initial setup of TV-card (Step 0/$MAX)"
+     MESSAGE1="Please select your TV card from the list."
+     MESSAGE2="Please select the type of your tuner."
+     MESSAGE3="The script will now try to load the necessary modules with this parameters . Then it'll start xawtv." 
+    ;;
+esac
+
+CARDLIST=$(cat $GCARDLIST | awk '/card=/{ print $0 "|off|" }' | sed 's/  card=//g; s/ - /|/g' | tr -d '\n')
+
+IFS='|'
+$DIALOG --backtitle "$BT" --title "${T1/0/1}" --radiolist "$MESSAGE1" 20 60 6 $CARDLIST 2> $TMP || exit 1
+unset IFS
+
+CARD=$(cat $TMP)
+
+TUNERLIST=$(cat $GCARDLIST | awk '/type=/{ print $0 "|off|" }' | sed 's/  type=//g; s/ - /|/g' | tr -d '\n')
+
+IFS='|'
+$DIALOG --backtitle "$BT" --title "${T1/0/2}" --radiolist "$MESSAGE2" 20 60 6 $TUNERLIST 2> $TMP || exit 1
+unset IFS
+
+TUNER=$(cat $TMP)
+
+$DIALOG --cr-wrap --backtitle "$BT" --title "${T1/0/3}" --msgbox "$MESSAGE3" 20 60 || exit 1
+
+sudo /sbin/rmmod -r bttv
+sudo /sbin/rmmod -r tuner
+sudo /sbin/modprobe bttv card=$CARD tuner=$TUNER
+
+exec xawtv.wrapper

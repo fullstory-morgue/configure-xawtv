@@ -1,0 +1,105 @@
+#!/bin/bash
+#
+# Pre-Configure xawtv for knoppix
+#
+# License: GPL
+#
+# Based on initial work by Kai Lahmann <kl@3dots.de>
+#
+# Patches and Debian package by Fabian Franz <knx-xawtv@fabian-franz.de>
+#
+# Spanish translation by Sergio González, <sergio.gonzalez@hispalinux.es>
+#
+#
+
+
+clean_exit(){
+  [ -f "$TMP" ] && rm -f "$TMP"
+}
+
+trap clean_exit EXIT
+
+
+TMP="/tmp/configure_xawtv.$$"
+
+if [ "$1" = "scantv" ]
+then
+  shift
+  TMPFILE="$1"
+  shift
+  scantv "$@" > $TMP || exit 1
+  cat $TMP > $TMPFILE
+  exit 0 
+fi
+
+DIALOG="dialog"
+[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
+XDIALOG_HIGH_DIALOG_COMPAT=1
+export XDIALOG_HIGH_DIALOG_COMPAT
+
+[ -f /etc/sysconfig/i18n ] && . /etc/sysconfig/i18n
+
+MAX=4
+
+case "$LANGUAGE" in
+   de*|at*|ch*)
+     BT="xawtv-Konfiguration"
+     T1="Einrichtung von xawtv (Schritt 0/$MAX)"
+     MESSAGE1="Bitte wählen Sie ihre TV-Norm aus."
+     MESSAGE2="Bitte wählen Sie eine Frequenztabelle aus."
+     MESSAGE3="Das Skript wird jetzt versuchen alle verfügbaren Fernsehsender zu finden. Dies kann eine Weile dauern. Bitte haben Sie Geduld."
+     MESSAGE4="Die Installation ist abgeschlossen. xawtv wird nun gestartet. Fröhliches Fernsehgucken!"
+     MESSAGE5="Die Installation wurde abgebrochen. Wollen Sie xawtv trotzdem starten?\n\n(Um den Wrapper permanent zu deaktivieren legen Sie bitte eine Datei ~/.xawtv an oder lassen Sie dieses Skript einmal vollständig durchlaufen.)"
+     ;;
+   es)
+     BT="Configuración de xawtv"
+     T1="Configuración inicial para xawtv (Paso 0/$MAX)"
+     MESSAGE1="Por favor, seleccione su norma de TV"
+     MESSAGE2="Por favor, seleccione una tabla de frecuencias."
+     MESSAGE3="El script intentará buscar nuevos canales de televisión. Esto puede tomar un momento. Por favor, sea paciente." 
+     MESSAGE4="La instalación se ha completado. xawtv se ejecutará ahora. ¡Feliz visionado!"
+    ;;
+   *)
+     BT="xawtv-Configuration"
+     T1="Initial setup of xawtv (Step 0/$MAX)"
+     MESSAGE1="Please select your TV norm."
+     MESSAGE2="Please select a frequency table."
+     MESSAGE3="The script will now try to find all available TV channels. This can take a while. Please be patient." 
+     MESSAGE4="The Installation is complete. xawtv will now be started. Happy watching!"
+     MESSAGE5="The Installation was aborted. Do you want to start xawtv anyway ?\n\n(To deactivate the wrapper permanently create a ~/.xawtv or let this script finish normally.)"
+    ;;
+esac
+
+exit_proc(){
+  $DIALOG  --backtitle "$BT" --title "${T1/0/1}" --yesno "$MESSAGE5" 20 60
+  exit $?
+}
+
+
+
+$DIALOG --backtitle "$BT" --title "${T1/0/1}" --radiolist "$MESSAGE1" 20 60 6 PAL PAL on NTSC NTSC off SECAM SECAM off PAL-NC PAL-NC off PAL-M PAL-M off PAL-N PAL-N off NTSC-JP NTSC-JP off 2> $TMP || exit_proc
+
+NORM=$(cat $TMP)
+
+$DIALOG --backtitle "$BT" --title "${T1/0/2}" --radiolist "$MESSAGE2" 20 60 6 europe-west "Western Europe" on europe-east "Eastern Europe" off us-bcast us-bcast off us-cable us-cable off us-cable-hrc us-cable-hrc off japan-bcast japan-bcast off japan-cable japan-cable off italy "Italy" off newzealand "Newsealand" off australia "Australia" off ireland "Ireland" off france "France" off china-bcast "China" off southafrica "South Africa" off argentina "Argentina" off australia-optus australia-optus off russia "Russia" off 2> $TMP || exit_proc
+
+TABLE=$(cat $TMP)
+
+$DIALOG --cr-wrap --backtitle "$BT" --title "${T1/0/3}" --yesno "$MESSAGE3" 20 60 || exit_proc
+
+rm -f $TMP
+
+if [ $DIALOG = "Xdialog" ]
+then
+  xterm -e $0 scantv "$TMP" -n $NORM -f $TABLE
+else
+  $0 scantv "$TMP" -n $NORM -f $TABLE
+fi
+
+[ ! -r "$TMP" ] && exit_proc
+
+cat $TMP > ~/.xawtv
+
+$DIALOG --cr-wrap --backtitle "$BT" --title "${T1/0/4}" --msgbox "$MESSAGE4" 20 60
+
+exit 0
