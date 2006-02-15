@@ -4,7 +4,7 @@ configure-xawtv-kanotix (0.2.3) unstable; urgency=low
   * bump compat level to 5.
   * fix configure_bttv, thanks to Ge0rgy.
 
- -- Stefan Lippers-Hollmann <slh@Kanotix>  Wed, 15 Feb 2006 23:20:12 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 15 Feb 2006 23:28:01 +0100
 
 configure-xawtv-kanotix (0.2.2) unstable; urgency=low
 
