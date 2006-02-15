@@ -20,7 +20,7 @@ set -e
 
 case "$1" in
        purge|remove|failed-upgrade|abort-install|abort-upgrade|disappear)
-       dpkg-divert --remove /usr/share/applnk/Multimedia/Video/xawtv.desktop
+		dpkg-divert --remove /usr/share/applnk/Multimedia/Video/xawtv.desktop
 
         ;;
 

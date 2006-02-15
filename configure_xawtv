@@ -89,11 +89,10 @@ $DIALOG --cr-wrap --backtitle "$BT" --title "${T1/0/3}" --yesno "$MESSAGE3" 20 6
 
 rm -f $TMP
 
-if [ $DIALOG = "Xdialog" ]
-then
-  xterm -e $0 scantv "$TMP" -n $NORM -f $TABLE
+if [ $DIALOG = "Xdialog" ]; then
+	xterm -e $0 scantv "$TMP" -n $NORM -f $TABLE -C /dev/vbi0
 else
-  $0 scantv "$TMP" -n $NORM -f $TABLE
+	$0 scantv "$TMP" -n $NORM -f $TABLE -C /dev/vbi0
 fi
 
 [ ! -r "$TMP" ] && exit_proc
@@ -103,3 +102,4 @@ cat $TMP > ~/.xawtv
 $DIALOG --cr-wrap --backtitle "$BT" --title "${T1/0/4}" --msgbox "$MESSAGE4" 20 60
 
 exit 0
+

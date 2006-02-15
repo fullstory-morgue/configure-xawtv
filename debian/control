@@ -1,13 +1,16 @@
-Source: configure-xawtv
+Source: configure-xawtv-kanotix
 Section: x11
 Priority: optional
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Build-Depends-Indep: cdbs (>= 0.4.23-1.1), build-essential, debhelper (>= 4.1.0)
+Build-Depends-Indep: cdbs (>= 0.4.23-1.1), debhelper (>= 5.0.0)
 Standards-Version: 3.6.2
 
-Package: configure-xawtv
+Package: configure-xawtv-kanotix
 Architecture: all
-Depends: xawtv, scantv, xterm, dialog, kanotix-menu
+Depends: xawtv, scantv, xterm, dialog, kanotix-menu, distro-defaults, udev
 Recommends: xdialog
+Provides: configure-xawtv
+Replaces: configure-xawtv
+Conflicts: configure-xawtv
 Description: pre-configures xawtv for use with KANOTIX
  General configuration Template for xawtv on live CDs.
