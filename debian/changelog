@@ -1,3 +1,9 @@
+configure-xawtv-kanotix (0.2.5) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  2 Mar 2006 02:00:04 +0100
+
 configure-xawtv-kanotix (0.2.4) unstable; urgency=low
 
   * knoppix --> kanotix transition, thanks to RoEn.
