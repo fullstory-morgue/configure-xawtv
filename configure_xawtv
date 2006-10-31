@@ -8,7 +8,7 @@
 #
 # Patches and Debian package by Fabian Franz <knx-xawtv@fabian-franz.de>
 #
-# Spanish translation by Sergio Gonz·lez, <sergio.gonzalez@hispalinux.es>
+# Spanish translation by Sergio Gonz√°lez, <sergio.gonzalez@hispalinux.es>
 #
 #
 
@@ -45,19 +45,19 @@ case "$LANGUAGE" in
    de*|at*|ch*)
      BT="xawtv-Konfiguration"
      T1="Einrichtung von xawtv (Schritt 0/$MAX)"
-     MESSAGE1="Bitte w‰hlen Sie ihre TV-Norm aus."
-     MESSAGE2="Bitte w‰hlen Sie eine Frequenztabelle aus."
-     MESSAGE3="Das Skript wird jetzt versuchen alle verf¸gbaren Fernsehsender zu finden. Dies kann eine Weile dauern. Bitte haben Sie Geduld."
-     MESSAGE4="Die Installation ist abgeschlossen. xawtv wird nun gestartet. Frˆhliches Fernsehgucken!"
-     MESSAGE5="Die Installation wurde abgebrochen. Wollen Sie xawtv trotzdem starten?\n\n(Um den Wrapper permanent zu deaktivieren legen Sie bitte eine Datei ~/.xawtv an oder lassen Sie dieses Skript einmal vollst‰ndig durchlaufen.)"
+     MESSAGE1="Bitte w√§hlen Sie ihre TV-Norm aus."
+     MESSAGE2="Bitte w√§hlen Sie eine Frequenztabelle aus."
+     MESSAGE3="Das Skript wird jetzt versuchen alle verf√ºgbaren Fernsehsender zu finden. Dies kann eine Weile dauern. Bitte haben Sie Geduld."
+     MESSAGE4="Die Installation ist abgeschlossen. xawtv wird nun gestartet. Fr√∂hliches Fernsehgucken!"
+     MESSAGE5="Die Installation wurde abgebrochen. Wollen Sie xawtv trotzdem starten?\n\n(Um den Wrapper permanent zu deaktivieren legen Sie bitte eine Datei ~/.xawtv an oder lassen Sie dieses Skript einmal vollst√§ndig durchlaufen.)"
      ;;
    es)
-     BT="ConfiguraciÛn de xawtv"
-     T1="ConfiguraciÛn inicial para xawtv (Paso 0/$MAX)"
+     BT="Configuraci√≥n de xawtv"
+     T1="Configuraci√≥n inicial para xawtv (Paso 0/$MAX)"
      MESSAGE1="Por favor, seleccione su norma de TV"
      MESSAGE2="Por favor, seleccione una tabla de frecuencias."
-     MESSAGE3="El script intentar· buscar nuevos canales de televisiÛn. Esto puede tomar un momento. Por favor, sea paciente." 
-     MESSAGE4="La instalaciÛn se ha completado. xawtv se ejecutar· ahora. °Feliz visionado!"
+     MESSAGE3="El script intentar√° buscar nuevos canales de televisi√≥n. Esto puede tomar un momento. Por favor, sea paciente." 
+     MESSAGE4="La instalaci√≥n se ha completado. xawtv se ejecutar√° ahora. ¬°Feliz visionado!"
     ;;
    *)
      BT="xawtv-Configuration"

@@ -6,7 +6,7 @@
 #
 # Author: Fabian Franz <knx-xawtv@fabian-franz.de>
 #
-# Spanish translation by Sergio Gonz·lez, <sergio.gonzalez@hispalinux.es>
+# Spanish translation by Sergio Gonz√°lez, <sergio.gonzalez@hispalinux.es>
 
 # override tool behaviour through distro-defaults
 FLL_DISTRO_MODE="installed"
@@ -35,16 +35,16 @@ case "$LANGUAGE" in
 	de*|at*|ch*)
 		BT="Fernsehkarten-Konfiguration"
 		T1="Einrichtung der Fernsehkarte (Schritt 0/$MAX)"
-		MESSAGE1="Bitte w‰hlen Sie Ihre Fernsehkarte aus der Liste aus."
-		MESSAGE2="Bitte w‰hlen Sie den Typ Ihres Tuners."
-		MESSAGE3="Das Skript wird jetzt versuchen die nˆtigen Module mit diesen Parametern zu laden und anschlieﬂend xawtv starten."
+		MESSAGE1="Bitte w√§hlen Sie Ihre Fernsehkarte aus der Liste aus."
+		MESSAGE2="Bitte w√§hlen Sie den Typ Ihres Tuners."
+		MESSAGE3="Das Skript wird jetzt versuchen die n√∂tigen Module mit diesen Parametern zu laden und anschlie√üend xawtv starten."
 		;;
 	es)
-		BT="ConfiguraciÛn de la tarjeta de TV"
-		T1="ConfiguraciÛn inicial de la tarjeta de televisiÛn (Paso 0/$MAX)"
-		MESSAGE1="Por favor, seleccione una tarjeta de televisiÛn de la lista."
+		BT="Configuraci√≥n de la tarjeta de TV"
+		T1="Configuraci√≥n inicial de la tarjeta de televisi√≥n (Paso 0/$MAX)"
+		MESSAGE1="Por favor, seleccione una tarjeta de televisi√≥n de la lista."
 		MESSAGE2="Por favor, seleccione el tipo de sintonizador."
-		MESSAGE3="El script intentar· cargar los mÛdulos necesarios, con estos par·metros . DespuÈs arrancar· xawtv." 
+		MESSAGE3="El script intentar√° cargar los m√≥dulos necesarios, con estos par√°metros . Despu√©s arrancar√° xawtv." 
 		;;
 	*)
 		BT="TV-Card-Configuration"

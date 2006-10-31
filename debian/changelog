@@ -1,9 +1,10 @@
 configure-xawtv-kanotix (0.2.5) unstable; urgency=low
 
-  * NOT RELEASED YET
   * bump compat level to 5.
+  * switch to utf-8.
+  * fix lintian errors.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 12 Mar 2006 00:11:23 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 31 Oct 2006 23:37:05 +0100
 
 configure-xawtv-kanotix (0.2.4) unstable; urgency=low
 

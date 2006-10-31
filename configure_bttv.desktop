@@ -1,7 +1,7 @@
 [Desktop Entry]
 Exec=/usr/bin/configure_bttv
 Name[de]=Fernsehkarte konfigurieren (bttv-Chipsatz)
-Name[es]=Configurar la tarjeta de televisión (bttv)
+Name[es]=Configurar la tarjeta de televisiÃ³n (bttv)
 Name=Configure TV card (bttv-chipset)
 Icon=xawtv
 Type=Application
