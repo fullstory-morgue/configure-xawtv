@@ -1,3 +1,9 @@
+configure-xawtv-kanotix (0.2.6) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 31 Oct 2006 23:39:07 +0100
+
 configure-xawtv-kanotix (0.2.5) unstable; urgency=low
 
   * bump compat level to 5.
