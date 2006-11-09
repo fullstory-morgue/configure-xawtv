@@ -20,18 +20,16 @@ GCARDLIST="/usr/share/configure-bttv/CARDLIST"
 
 trap clean_exit EXIT
 
-TMP="/tmp/configure_bttv.$$"
+TMP="$(mktemp -p /tmp/ configure_bttv-XXXXXXXXXX)"
 
 DIALOG="dialog"
 [ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
 XDIALOG_HIGH_DIALOG_COMPAT=1
 export XDIALOG_HIGH_DIALOG_COMPAT
 
-[ -f /etc/sysconfig/i18n ] && . /etc/sysconfig/i18n
-
 MAX=3
 
-case "$LANGUAGE" in
+case "$LANG" in
 	de*|at*|ch*)
 		BT="Fernsehkarten-Konfiguration"
 		T1="Einrichtung der Fernsehkarte (Schritt 0/$MAX)"
@@ -39,7 +37,7 @@ case "$LANGUAGE" in
 		MESSAGE2="Bitte wählen Sie den Typ Ihres Tuners."
 		MESSAGE3="Das Skript wird jetzt versuchen die nötigen Module mit diesen Parametern zu laden und anschließend xawtv starten."
 		;;
-	es)
+	es*)
 		BT="Configuración de la tarjeta de TV"
 		T1="Configuración inicial de la tarjeta de televisión (Paso 0/$MAX)"
 		MESSAGE1="Por favor, seleccione una tarjeta de televisión de la lista."
@@ -55,31 +53,31 @@ case "$LANGUAGE" in
 		;;
 esac
 
-CARDLIST=$(cat $GCARDLIST | awk '/card=/{ print $0 "|off|" }' | sed 's/  card=//g; s/ - /|/g' | tr -d '\n')
+CARDLIST="$(cat $GCARDLIST | awk '/card=/{ print $0 "|off|" }' | sed 's/  card=//g; s/ - /|/g' | tr -d '\n')"
 
 IFS='|'
-$DIALOG --backtitle "$BT" --title "${T1/0/1}" --radiolist "$MESSAGE1" 20 60 6 $CARDLIST 2> $TMP || exit 1
+"$DIALOG" --backtitle "$BT" --title "${T1/0/1}" --radiolist "$MESSAGE1" 20 60 6 "$CARDLIST" 2> "$TMP" || exit 1
 unset IFS
 
-CARD=$(cat $TMP)
+CARD="$(cat $TMP)"
 
-TUNERLIST=$(cat $GCARDLIST | awk '/tuner=/{ print $0 "|off|" }' | sed 's/  tuner=//g; s/ - /|/g' | tr -d '\n')
+TUNERLIST="$(cat $GCARDLIST | awk '/tuner=/{ print $0 "|off|" }' | sed 's/  tuner=//g; s/ - /|/g' | tr -d '\n')"
 
 IFS='|'
-$DIALOG --backtitle "$BT" --title "${T1/0/2}" --radiolist "$MESSAGE2" 20 60 6 $TUNERLIST 2> $TMP || exit 1
+"$DIALOG" --backtitle "$BT" --title "${T1/0/2}" --radiolist "$MESSAGE2" 20 60 6 "$TUNERLIST" 2> "$TMP" || exit 1
 unset IFS
 
-TUNER=$(cat $TMP)
+TUNER="$(cat $TMP)"
 
-$DIALOG --cr-wrap --backtitle "$BT" --title "${T1/0/3}" --msgbox "$MESSAGE3" 20 60 || exit 1
+"$DIALOG" --cr-wrap --backtitle "$BT" --title "${T1/0/3}" --msgbox "$MESSAGE3" 20 60 || exit 1
 
-sudo /sbin/rmmod -r bttv
-sudo /sbin/rmmod -r tuner
-sudo /sbin/modprobe bttv card="$CARD" tuner="$TUNER"
+kanotix-su /sbin/rmmod -r bttv
+kanotix-su /sbin/rmmod -r tuner
+kanotix-su /sbin/modprobe bttv card="$CARD" tuner="$TUNER"
 
-sudo rm -f /etc/modprobe.d/bttv
-sudo echo "options bttv card=$CARD tuner=$TUNER" > /etc/modprobe.d/bttv
-[ ! "$FLL_DISTRO_MODE" == "live" ] && sudo update-modules -f &>/dev/null
+kanotix-su rm -f /etc/modprobe.d/bttv
+kanotix-su echo "options bttv card=$CARD tuner=$TUNER" > /etc/modprobe.d/bttv
+[ ! "$FLL_DISTRO_MODE" = "live" ] && kanotix-su update-modules -f &>/dev/null
 
 exec xawtv.wrapper
 

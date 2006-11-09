@@ -7,7 +7,7 @@ Standards-Version: 3.7.2
 
 Package: configure-xawtv-kanotix
 Architecture: all
-Depends: xawtv, scantv, xterm, dialog, kanotix-menu, distro-defaults, udev
+Depends: xawtv, scantv, xterm, dialog, kanotix-menu, distro-defaults, udev, kanotix-su
 Recommends: xdialog
 Provides: configure-xawtv
 Replaces: configure-xawtv

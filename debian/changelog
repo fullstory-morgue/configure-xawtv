@@ -1,8 +1,12 @@
-configure-xawtv-kanotix (0.2.6) UNRELEASED; urgency=low
+configure-xawtv-kanotix (0.2.6) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * use kanotix-su.
+  * safe mktemp usage.
+  * get rid of /etc/sysconfig/.
+  * remove useless [ a == b ] bashism.
+  * add necessary quoting, call for the clue bat.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 31 Oct 2006 23:39:07 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  9 Nov 2006 18:36:00 +0100
 
 configure-xawtv-kanotix (0.2.5) unstable; urgency=low
 
