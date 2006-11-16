@@ -86,7 +86,7 @@ TABLE="$(cat $TMP)"
 rm -f "$TMP"
 
 if [ "$DIALOG" = "Xdialog" ]; then
-	xterm -e "$0" scantv "$TMP" -n "$NORM" -f "$TABLE" -C /dev/vbi0
+	x-terminal-emulator -e "$0" scantv "$TMP" -n "$NORM" -f "$TABLE" -C /dev/vbi0
 else
 	"$0" scantv "$TMP" -n "$NORM" -f "$TABLE" -C /dev/vbi0
 fi

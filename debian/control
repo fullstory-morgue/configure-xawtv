@@ -7,10 +7,7 @@ Standards-Version: 3.7.2
 
 Package: configure-xawtv-kanotix
 Architecture: all
-Depends: xawtv, scantv, xterm, dialog, kanotix-menu, distro-defaults, udev, kanotix-su
+Depends: xawtv, scantv, xterm | x-terminal-emulator, dialog, kanotix-menu, distro-defaults, udev, kanotix-su
 Recommends: xdialog
-Provides: configure-xawtv
-Replaces: configure-xawtv
-Conflicts: configure-xawtv
 Description: pre-configures xawtv for use with KANOTIX
  General configuration Template for xawtv on live CDs.

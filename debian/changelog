@@ -1,8 +1,9 @@
-configure-xawtv-kanotix (0.2.7) UNRELEASED; urgency=low
+configure-xawtv-kanotix (0.2.7) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * use generic x-terminal-emulator support instead of harcoded application,
+    thanks to x-un-i.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  9 Nov 2006 18:38:10 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 16 Nov 2006 22:34:27 +0100
 
 configure-xawtv-kanotix (0.2.6) unstable; urgency=low
 
