@@ -1,8 +1,8 @@
-configure-xawtv-kanotix (0.2.8) UNRELEASED; urgency=low
+configure-xawtv-kanotix (0.2.8) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix postrm.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 16 Nov 2006 22:35:51 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 21 Nov 2006 15:47:36 +0100
 
 configure-xawtv-kanotix (0.2.7) unstable; urgency=low
 
