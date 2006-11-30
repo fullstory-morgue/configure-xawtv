@@ -1,8 +1,9 @@
 configure-xawtv-kanotix (0.2.9) UNRELEASED; urgency=low
 
   * NOT RELEASED YET
+  * Initial sidux version
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 21 Nov 2006 15:48:49 +0100
+ -- Joaquim Boura <x-un-i@sidux.com>  Thu, 30 Nov 2006 21:32:55 +0100
 
 configure-xawtv-kanotix (0.2.8) unstable; urgency=low
 
