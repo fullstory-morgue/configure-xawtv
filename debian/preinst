@@ -18,7 +18,7 @@ set -e
 case "$1" in
     install)
      # NUR bei install, nicht bei upgrade!
-     dpkg-divert --package configure-xawtv-kanotix --add /usr/share/applnk/Multimedia/Video/xawtv.desktop
+     dpkg-divert --package configure-xawtv --add /usr/share/applnk/Multimedia/Video/xawtv.desktop
     ;;
     upgrade)
      true

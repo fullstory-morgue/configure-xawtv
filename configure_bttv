@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Configure bttv card for kanotix
+# Configure bttv card for sidux
 #
 # License: GPL
 #
@@ -71,13 +71,13 @@ TUNER="$(cat $TMP)"
 
 "$DIALOG" --cr-wrap --backtitle "$BT" --title "${T1/0/3}" --msgbox "$MESSAGE3" 20 60 || exit 1
 
-kanotix-su /sbin/rmmod -r bttv
-kanotix-su /sbin/rmmod -r tuner
-kanotix-su /sbin/modprobe bttv card="$CARD" tuner="$TUNER"
+su-me /sbin/rmmod -r bttv
+su-me /sbin/rmmod -r tuner
+su-me /sbin/modprobe bttv card="$CARD" tuner="$TUNER"
 
-kanotix-su rm -f /etc/modprobe.d/bttv
-kanotix-su echo "options bttv card=$CARD tuner=$TUNER" > /etc/modprobe.d/bttv
-[ ! "$FLL_DISTRO_MODE" = "live" ] && kanotix-su update-modules -f &>/dev/null
+su-me rm -f /etc/modprobe.d/bttv
+su-me echo "options bttv card=$CARD tuner=$TUNER" > /etc/modprobe.d/bttv
+[ ! "$FLL_DISTRO_MODE" = "live" ] && su-me update-modules -f &>/dev/null
 
 exec xawtv.wrapper
 
