@@ -1,9 +1,12 @@
-configure-xawtv (0.2.9) UNRELEASED; urgency=low
+configure-xawtv (0.2.9) unstable; urgency=low
 
-  * NOT RELEASED YET
+  [ Joaquim Boura ]
   * Initial sidux version
 
- -- Joaquim Boura <x-un-i@sidux.com>  Thu, 30 Nov 2006 21:32:55 +0100
+  [ Stefan Lippers-Hollmann ]
+  * tweak debian/control.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun,  3 Dec 2006 02:07:12 +0100
 
 configure-xawtv-kanotix (0.2.8) unstable; urgency=low
 
