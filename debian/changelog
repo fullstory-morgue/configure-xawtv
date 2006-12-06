@@ -1,3 +1,9 @@
+configure-xawtv (0.2.11) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed,  6 Dec 2006 02:50:01 +0100
+
 configure-xawtv (0.2.10) unstable; urgency=low
 
   * too late for a proper fix, do it quick an dirty.
