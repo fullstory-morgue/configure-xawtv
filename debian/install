@@ -1,7 +1,6 @@
 xawtv.wrapper usr/bin/
 configure_xawtv usr/bin/
 configure_bttv usr/bin/
-xawtv.desktop usr/share/applnk/Multimedia/Video/
 .directory usr/share/applnk/sidux/Config/TV/
 configure*.desktop usr/share/applnk/sidux/Config/TV/
 CARDLIST usr/share/configure-bttv/
