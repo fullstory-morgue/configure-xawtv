@@ -1,7 +1,12 @@
 [Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Categories=sidux;Config;TV
 Exec=/usr/bin/configure_bttv
+
+Icon=xawtv
+
+Name=Configure TV card (bttv-chipset)
 Name[de]=Fernsehkarte konfigurieren (bttv-Chipsatz)
 Name[es]=Configurar la tarjeta de televisión (bttv)
-Name=Configure TV card (bttv-chipset)
-Icon=xawtv
-Type=Application
+

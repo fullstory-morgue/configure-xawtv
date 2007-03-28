@@ -1,8 +1,12 @@
 configure-xawtv (0.2.11) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed,  6 Dec 2006 02:50:01 +0100
+  [ Joaquim Boura ]
+  * moving to xdg-menus
+
+ -- Joaquim Boura <x-un-i@sidux.com>  Wed, 28 Mar 2007 21:32:23 +0200
 
 configure-xawtv (0.2.10) unstable; urgency=low
 
