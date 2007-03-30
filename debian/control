@@ -7,7 +7,7 @@ Standards-Version: 3.7.2
 
 Package: configure-xawtv
 Architecture: all
-Depends: xawtv, scantv, xterm | x-terminal-emulator, dialog, sidux-menu, distro-defaults, udev, su-me
+Depends: xawtv, scantv, xterm | x-terminal-emulator, dialog, sidux-xdg, distro-defaults, udev, su-me
 Recommends: xdialog
 Description: pre-configures xawtv for use with sidux
  General configuration Template for xawtv on live CDs.
