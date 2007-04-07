@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Application
 Exec=/usr/bin/xawtv.wrapper reconfigure
-Icon=xawtv
+Icon=sidux-xawtv
 Name=configure tv channels
 Name[de]=Fernsehsender konfigurieren
 Name[es]=Configurar los canales de TV

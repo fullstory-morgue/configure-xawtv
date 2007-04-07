@@ -4,7 +4,7 @@ Type=Application
 Categories=sidux;Config;TV
 Exec=/usr/bin/configure_bttv
 
-Icon=xawtv
+Icon=sidux-bttv
 
 Name=Configure TV card (bttv-chipset)
 Name[de]=Fernsehkarte konfigurieren (bttv-Chipsatz)
