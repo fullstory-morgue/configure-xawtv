@@ -3,3 +3,4 @@ configure_xawtv		usr/bin/
 configure_bttv		usr/bin/
 configure*.desktop	usr/share/applications/sidux/
 CARDLIST		usr/share/configure-bttv/
+icons			usr/share/
