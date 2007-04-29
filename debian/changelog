@@ -1,10 +1,6 @@
-configure-xawtv (0.2.13) UNRELEASED; urgency=low
+configure-xawtv (0.2.13) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
-  * new icons sidux-bttv  and sidux-xawtv.
+  * new icons sidux-bttv and sidux-xawtv.
 
  -- Joaquim Boura <x-un-i@sidux.com>  Sun, 29 Apr 2007 18:55:31 +0200
 
