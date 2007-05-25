@@ -56,7 +56,7 @@ esac
 CARDLIST="$(cat $GCARDLIST | awk '/card=/{ print $0 "|off|" }' | sed 's/  card=//g; s/ - /|/g' | tr -d '\n')"
 
 IFS='|'
-"$DIALOG" --backtitle "$BT" --title "${T1/0/1}" --radiolist "$MESSAGE1" 20 60 6 "$CARDLIST" 2> "$TMP" || exit 1
+"$DIALOG" --backtitle "$BT" --title "${T1/0/1}" --radiolist "$MESSAGE1" 20 60 6 $CARDLIST 2> "$TMP" || exit 1
 unset IFS
 
 CARD="$(cat $TMP)"
@@ -64,7 +64,7 @@ CARD="$(cat $TMP)"
 TUNERLIST="$(cat $GCARDLIST | awk '/tuner=/{ print $0 "|off|" }' | sed 's/  tuner=//g; s/ - /|/g' | tr -d '\n')"
 
 IFS='|'
-"$DIALOG" --backtitle "$BT" --title "${T1/0/2}" --radiolist "$MESSAGE2" 20 60 6 "$TUNERLIST" 2> "$TMP" || exit 1
+"$DIALOG" --backtitle "$BT" --title "${T1/0/2}" --radiolist "$MESSAGE2" 20 60 6 $TUNERLIST 2> "$TMP" || exit 1
 unset IFS
 
 TUNER="$(cat $TMP)"
