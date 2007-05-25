@@ -1,3 +1,9 @@
+configure-xawtv (0.2.15) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 25 May 2007 21:01:29 +0200
+
 configure-xawtv (0.2.14) unstable; urgency=low
 
   * fixed xdialog call breakage
