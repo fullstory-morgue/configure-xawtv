@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Pre-Configure xawtv for kanotix
+# Pre-Configure xawtv for sidux
 #
 # License: GPL
 #
@@ -10,7 +10,22 @@
 #
 # Spanish translation by Sergio González, <sergio.gonzalez@hispalinux.es>
 #
-#
+# 
+#--------------------------------------------------------------
+PATH="/bin:/sbin:/usr/bin:/usr/sbin"
+export PATH
+
+# we need gettext (is loaded in ssft.sh or cloned...)
+if [ -f /usr/bin/gettext.sh ]; then
+	. /usr/bin/gettext.sh || exit 1
+else
+	exit 1
+fi
+
+TEXTDOMAIN="configure_xawtv"
+export TEXTDOMAIN
+TEXTDOMAINDIR=/usr/share/locale
+export TEXTDOMAINDIR
 
 
 clean_exit() {
@@ -22,18 +37,14 @@ trap clean_exit EXIT
 TMP="$(mktemp -p /tmp/ configure_xawtv-XXXXXXXXXX)"
 
 if [ "$1" = "scantv" ]; then
-  shift
-  TMPFILE="$1"
-  shift
-  scantv "$@" > "$TMP" || exit 1
-  cat "$TMP" > "$TMPFILE"
-  exit 0 
+	shift
+	TMPFILE="$1"
+	shift
+	scantv "$@" > "$TMP" || exit 1
+	cat "$TMP" > "$TMPFILE"
+	exit 0 
 fi
 
-DIALOG="dialog"
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
-XDIALOG_HIGH_DIALOG_COMPAT=1
-export XDIALOG_HIGH_DIALOG_COMPAT
 
 MAX=4
 
@@ -66,26 +77,39 @@ case "$LANG" in
     ;;
 esac
 
-exit_proc() {
-  $DIALOG  --backtitle "$BT" --title "${T1/0/1}" --yesno "$MESSAGE5" 20 60
-  exit $?
+exit_proc() 
+{
+	ssft_yesno "${T1/0/1}"  "$(gettext "The Installation was aborted. Do you want to start xawtv anyway ?\n\n(To deactivate the wrapper permanently create a ~/.xawtv or let this script finish normally.)")"
+	exit $?
 }
 
 
+# determine system status
+SSFTSH="$(which ssft.sh)"	|| SSFTSH="/usr/bin/ssft.sh"
+ZENITYSH="$(which zenity)"	|| ZENITYSH="/usr/bin/zenity"
+DIALOGSH="$(which dialog)"	|| DIALOGSH="/usr/bin/dialog"
 
-"$DIALOG" --backtitle "$BT" --title "${T1/0/1}" --radiolist "$MESSAGE1" 20 60 6 PAL PAL on NTSC NTSC off SECAM SECAM off PAL-NC PAL-NC off PAL-M PAL-M off PAL-N PAL-N off NTSC-JP NTSC-JP off 2> "$TMP" || exit_proc
+# initialize ssft
+#[ -n "$DISPLAY" ] && [ -x /usr/bin/kdialog ] && SSFT_FRONTEND="kdialog"
+. "$SSFTSH"
+[ -n "$SSFT_FRONTEND" ] ||  SSFT_FRONTEND="$(ssft_choose_frontend)"
 
-NORM="$(cat $TMP)"
 
-"$DIALOG" --backtitle "$BT" --title "${T1/0/2}" --radiolist "$MESSAGE2" 20 60 6 europe-west "Western Europe" on europe-east "Eastern Europe" off us-bcast us-bcast off us-cable us-cable off us-cable-hrc us-cable-hrc off japan-bcast japan-bcast off japan-cable japan-cable off italy "Italy" off newzealand "Newsealand" off australia "Australia" off ireland "Ireland" off france "France" off china-bcast "China" off southafrica "South Africa" off argentina "Argentina" off australia-optus australia-optus off russia "Russia" off 2> "$TMP" || exit_proc
+NORMLIST="PAL NTSC SECAM PAL-NC PAL-M NTSC-JP"
 
-TABLE="$(cat $TMP)"
+ssft_select_single "${T1/0/1}" "$(gettext "Please select your TV-norm")" $NORMLIST exit  || exit_proc
+[ "$SSFT_RESULT" = "exit" ] && exit_proc
+NORM="$SSFT_RESULT"
 
-"$DIALOG" --cr-wrap --backtitle "$BT" --title "${T1/0/3}" --yesno "$MESSAGE3" 20 60 || exit_proc
+TABLELIST="europe-west europe-east us-bcast us-cable us-cable-hrc japan-bcast japan-cable italy newzealand australia ireland france china-bcast southafrica argentina australia-optus russia"
+ssft_select_single "${T1/0/2}" "$(gettext "Please select a frequency table.")" $TABLELIST exit || exit_proc
+[ "$SSFT_RESULT" = "exit" ] && exit_proc
+TABLE="$SSFT_RESULT"
 
-rm -f "$TMP"
+ssft_display_message  "${T1/0/3}" "$(gettext "The script will now try to find all available TV channels. This can take a while. Please be patient.")" 
 
-if [ "$DIALOG" = "Xdialog" ]; then
+
+if [ -n "$DISPLAY" ]; then
 	x-terminal-emulator -e "$0" scantv "$TMP" -n "$NORM" -f "$TABLE" -C /dev/vbi0
 else
 	"$0" scantv "$TMP" -n "$NORM" -f "$TABLE" -C /dev/vbi0
@@ -93,9 +117,9 @@ fi
 
 [ ! -r "$TMP" ] && exit_proc
 
-cat "$TMP" > ~/.xawtv
+mv -f "$TMP" ~/.xawtv
 
-$DIALOG --cr-wrap --backtitle "$BT" --title "${T1/0/4}" --msgbox "$MESSAGE4" 20 60
+ssft_display_message  "${T1/0/4}" "$(gettext "The Installation is complete. xawtv will now be started. Happy watching!")"
 
 exit 0
 

@@ -9,6 +9,24 @@
 # Spanish translation by Sergio González, <sergio.gonzalez@hispalinux.es>
 
 # override tool behaviour through distro-defaults
+#
+#--------------------------------------------------------------
+PATH="/bin:/sbin:/usr/bin:/usr/sbin"
+export PATH
+
+# we need gettext (is loaded in ssft.sh or cloned...)
+if [ -f /usr/bin/gettext.sh ]; then
+        . /usr/bin/gettext.sh || exit 1
+else
+        exit 1
+fi
+
+TEXTDOMAIN="configure_bttv"
+export TEXTDOMAIN
+TEXTDOMAINDIR=/usr/share/locale
+export TEXTDOMAINDIR
+
+
 FLL_DISTRO_MODE="installed"
 [ -r /etc/default/distro ] && source /etc/default/distro
 
@@ -16,16 +34,20 @@ clean_exit () {
 	[ -f "$TMP" ] && rm -f "$TMP"
 }
 
-GCARDLIST="/usr/share/configure-bttv/CARDLIST"
+CARDLIST_BTTV="/usr/share/configure-bttv/CARDLIST.bttv.gz"
+CARDLIST_TUNER="/usr/share/configure-bttv/CARDLIST.tuner.gz"
 
 trap clean_exit EXIT
 
-TMP="$(mktemp -p /tmp/ configure_bttv-XXXXXXXXXX)"
+# determine system status
+SSFTSH="$(which ssft.sh)"       || SSFTSH="/usr/bin/ssft.sh"
+ZENITYSH="$(which zenity)"      || ZENITYSH="/usr/bin/zenity"
+DIALOGSH="$(which dialog)"      || DIALOGSH="/usr/bin/dialog"
 
-DIALOG="dialog"
-[ -n "$DISPLAY" ] && [ -x /usr/bin/Xdialog ] && DIALOG="Xdialog"
-XDIALOG_HIGH_DIALOG_COMPAT=1
-export XDIALOG_HIGH_DIALOG_COMPAT
+# initialize ssft
+#[ -n "$DISPLAY" ] && [ -x /usr/bin/kdialog ] && SSFT_FRONTEND="kdialog"
+. "$SSFTSH"
+[ -n "$SSFT_FRONTEND" ] ||  SSFT_FRONTEND="$(ssft_choose_frontend)"
 
 MAX=3
 
@@ -53,23 +75,26 @@ case "$LANG" in
 		;;
 esac
 
-CARDLIST="$(cat $GCARDLIST | awk '/card=/{ print $0 "|off|" }' | sed 's/  card=//g; s/ - /|/g' | tr -d '\n')"
+NCARDLIST=$(gzip -dc $CARDLIST_BTTV)
 
-IFS='|'
-"$DIALOG" --backtitle "$BT" --title "${T1/0/1}" --radiolist "$MESSAGE1" 20 60 6 $CARDLIST 2> "$TMP" || exit 1
+IFS='
+'
+ssft_select_single "${T1/0/1}" "$(gettext "Please select your TV card from the list.")" $NCARDLIST   || exit 1
 unset IFS
 
-CARD="$(cat $TMP)"
+CARD="$(echo $SSFT_RESULT| awk '{print $1}')"
 
-TUNERLIST="$(cat $GCARDLIST | awk '/tuner=/{ print $0 "|off|" }' | sed 's/  tuner=//g; s/ - /|/g' | tr -d '\n')"
+NTUNERLIST=$(gzip -dc $CARDLIST_TUNER |awk -F "=" '/tuner=/{print $2}') 
 
-IFS='|'
-"$DIALOG" --backtitle "$BT" --title "${T1/0/2}" --radiolist "$MESSAGE2" 20 60 6 $TUNERLIST 2> "$TMP" || exit 1
+IFS='
+'
+ssft_select_single "${T1/0/2}" "$(gettext "Please select the type of your tuner.")" $NTUNERLIST  || exit 1
 unset IFS
 
-TUNER="$(cat $TMP)"
+TUNER=$(echo $SSFT_RESULT | awk '{print $1}')
 
-"$DIALOG" --cr-wrap --backtitle "$BT" --title "${T1/0/3}" --msgbox "$MESSAGE3" 20 60 || exit 1
+ssft_display_message  "${T1/0/3}" \
+    "$(gettext "The script will now try to load the necessary modules with this parameters . Then it'll start xawtv.")"
 
 su-me /sbin/rmmod -r bttv
 su-me /sbin/rmmod -r tuner
