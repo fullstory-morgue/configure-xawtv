@@ -1,6 +1,7 @@
 xawtv.wrapper		usr/bin/
 configure_xawtv		usr/bin/
 configure_bttv		usr/bin/
-configure*.desktop	usr/share/applications/sidux/
-CARDLIST		usr/share/configure-bttv/
 icons			usr/share/
+configure*.desktop	usr/share/applications/sidux/
+CARDLIST.bttv.gz	usr/share/configure-bttv/
+CARDLIST.tuner.gz	usr/share/configure-bttv/

@@ -1,12 +1,16 @@
 configure-xawtv (0.3.0) unstable; urgency=low
 
+  [ Joaquim Boura ]
   * Removed CARDLIST. Use now a copy of the video4linux documentation
     files found in the kernel tree.
   * Current tuner and bttv files are from linux-doc-2.6.22.1-slh-smp-7
   * replaced XDialog by ssft
   * prepared to use gettext (still incomplete)
 
- -- Joaquim Boura <x-un-i@sidux.com>  Thu, 02 Aug 2007 00:57:39 +0200
+  [ Stefan Lippers-Hollmann ]
+  * fix CARDLIST install.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Aug 2007 01:29:24 +0200
 
 configure-xawtv (0.2.14) unstable; urgency=low
 
