@@ -1,8 +1,14 @@
 configure-xawtv (0.3.2) UNRELEASED; urgency=low
 
+  [ Stefan Lippers-Hollmann ]
   * NOT RELEASED YET
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Aug 2007 15:17:38 +0200
+  [ Horst Tritremmel ]
+  * finished gettext support
+  * and de, es language file
+  * fix NCARDLIST in configure_bttv, ' in the list won't work with ssft
+
+ -- Horst Tritremmel <hjt@sidux.com>  Thu, 02 Aug 2007 16:05:13 +0200
 
 configure-xawtv (0.3.1) unstable; urgency=low
 

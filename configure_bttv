@@ -41,8 +41,6 @@ trap clean_exit EXIT
 
 # determine system status
 SSFTSH="$(which ssft.sh)"       || SSFTSH="/usr/bin/ssft.sh"
-ZENITYSH="$(which zenity)"      || ZENITYSH="/usr/bin/zenity"
-DIALOGSH="$(which dialog)"      || DIALOGSH="/usr/bin/dialog"
 
 # initialize ssft
 #[ -n "$DISPLAY" ] && [ -x /usr/bin/kdialog ] && SSFT_FRONTEND="kdialog"
@@ -51,35 +49,15 @@ DIALOGSH="$(which dialog)"      || DIALOGSH="/usr/bin/dialog"
 
 MAX=3
 
-case "$LANG" in
-	de*|at*|ch*)
-		BT="Fernsehkarten-Konfiguration"
-		T1="Einrichtung der Fernsehkarte (Schritt 0/$MAX)"
-		MESSAGE1="Bitte wählen Sie Ihre Fernsehkarte aus der Liste aus."
-		MESSAGE2="Bitte wählen Sie den Typ Ihres Tuners."
-		MESSAGE3="Das Skript wird jetzt versuchen die nötigen Module mit diesen Parametern zu laden und anschließend xawtv starten."
-		;;
-	es*)
-		BT="Configuración de la tarjeta de TV"
-		T1="Configuración inicial de la tarjeta de televisión (Paso 0/$MAX)"
-		MESSAGE1="Por favor, seleccione una tarjeta de televisión de la lista."
-		MESSAGE2="Por favor, seleccione el tipo de sintonizador."
-		MESSAGE3="El script intentará cargar los módulos necesarios, con estos parámetros . Después arrancará xawtv." 
-		;;
-	*)
-		BT="TV-Card-Configuration"
-		T1="Initial setup of TV-card (Step 0/$MAX)"
-		MESSAGE1="Please select your TV card from the list."
-		MESSAGE2="Please select the type of your tuner."
-		MESSAGE3="The script will now try to load the necessary modules with this parameters . Then it'll start xawtv." 
-		;;
-esac
 
-NCARDLIST=$(gzip -dc $CARDLIST_BTTV)
+NCARDLIST=$(gzip -dc $CARDLIST_BTTV | sed -e "s|'|\"|g")	# ' in the list won't work with ssft
 
 IFS='
 '
-ssft_select_single "${T1/0/1}" "$(gettext "Please select your TV card from the list.")" $NCARDLIST   || exit 1
+STEP=1
+ssft_select_single \
+	"$(eval_gettext "Initial setup of TV-card (Step \${STEP}/\${MAX})")" \
+	"$(gettext "Please select your TV card from the list.")" $NCARDLIST   || exit 1
 unset IFS
 
 CARD="$(echo $SSFT_RESULT| awk '{print $1}')"
@@ -88,13 +66,18 @@ NTUNERLIST=$(gzip -dc $CARDLIST_TUNER |awk -F "=" '/tuner=/{print $2}')
 
 IFS='
 '
-ssft_select_single "${T1/0/2}" "$(gettext "Please select the type of your tuner.")" $NTUNERLIST  || exit 1
+STEP=2
+ssft_select_single \
+	"$(eval_gettext "Initial setup of TV-card (Step \${STEP}/\${MAX})")" \
+	"$(gettext "Please select the type of your tuner.")" $NTUNERLIST  || exit 1
 unset IFS
 
 TUNER=$(echo $SSFT_RESULT | awk '{print $1}')
 
-ssft_display_message  "${T1/0/3}" \
-    "$(gettext "The script will now try to load the necessary modules with this parameters . Then it'll start xawtv.")"
+STEP=3
+ssft_display_message \
+	"$(eval_gettext "Initial setup of TV-card (Step \${STEP}/\${MAX})")" \
+	"$(gettext "The script will now try to load the necessary modules with this parameters . Then it'll start xawtv.")"
 
 su-me /sbin/rmmod -r bttv
 su-me /sbin/rmmod -r tuner
