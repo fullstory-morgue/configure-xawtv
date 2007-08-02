@@ -1,9 +1,5 @@
-configure-xawtv (0.3.3) UNRELEASED; urgency=low
+configure-xawtv (0.3.3) unstable; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
-  [ Joaquim Boura ]
   * pt language file
 
  -- Joaquim Boura <x-un-i@sidux.com>  Thu, 02 Aug 2007 18:46:08 +0200
