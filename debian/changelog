@@ -1,3 +1,9 @@
+configure-xawtv (0.3.4) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Aug 2007 22:03:53 +0200
+
 configure-xawtv (0.3.3) unstable; urgency=low
 
   * pt language file
