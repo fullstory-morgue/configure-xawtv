@@ -1,3 +1,9 @@
+configure-xawtv (0.3.3) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 02 Aug 2007 18:25:52 +0200
+
 configure-xawtv (0.3.2) unstable; urgency=low
 
   * finished gettext support
