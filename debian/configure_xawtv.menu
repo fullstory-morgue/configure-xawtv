@@ -1,0 +1,8 @@
+?package(configure-xawtv): \
+	needs="X11" \
+	section="Applications/System/Administration" \
+	hints="sidux,Config" \
+	title="configure tv channels" \
+	icon32x32="/usr/share/pixmaps/sidux-xawtv.xpm" \
+	icon16x16="/usr/share/pixmaps/sidux-xawtv-16.xpm" \
+	command="/usr/bin/xawtv.wrapper reconfigure"

@@ -6,3 +6,15 @@ build/configure-xawtv::
 	# Gettext Internationalisation (i18n)
 	DESTDIR=$(CURDIR)/debian/configure-xawtv $(CURDIR)/po/make_po.sh configure_xawtv.mo
 	DESTDIR=$(CURDIR)/debian/configure-xawtv $(CURDIR)/po/make_po.sh configure_bttv.mo
+
+install/configure-xawtv::
+	mkdir -p debian/configure-xawtv/usr/share/pixmaps
+	convert icons/hicolor/32x32/apps/sidux-bttv.png \
+		debian/configure-xawtv/usr/share/pixmaps/sidux-bttv.xpm
+	convert icons/hicolor/16x16/apps/sidux-bttv.png \
+		debian/configure-xawtv/usr/share/pixmaps/sidux-bttv-16.xpm
+	convert icons/hicolor/32x32/apps/sidux-xawtv.png \
+		debian/configure-xawtv/usr/share/pixmaps/sidux-xawtv.xpm
+	convert icons/hicolor/16x16/apps/sidux-xawtv.png \
+		debian/configure-xawtv/usr/share/pixmaps/sidux-xawtv-16.xpm
+
