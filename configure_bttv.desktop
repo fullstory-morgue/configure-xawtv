@@ -8,5 +8,8 @@ Icon=sidux-bttv
 
 Name=Configure TV card (bttv-chipset)
 Name[de]=Fernsehkarte konfigurieren (bttv-Chipsatz)
+Name[ru]=Установка TV-тюнера (bttv-Chipsatz)
 Name[es]=Configurar la tarjeta de televisión (bttv)
+Name[pt]=Configuração da placa de TV (bttv-Chip)
+Name[pt_BR]=Configuração da placa de TV (bttv-Chip)
 

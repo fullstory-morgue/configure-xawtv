@@ -5,6 +5,9 @@ Exec=/usr/bin/xawtv.wrapper reconfigure
 Icon=sidux-xawtv
 Name=configure tv channels
 Name[de]=Fernsehsender konfigurieren
+Name[ru]=Установка телеканалов
 Name[es]=Configurar los canales de TV
+Name[pt]=Configurar os canais de TV
+Name[pt_BR]=Configurar os canais de TV
 
 Categories=sidux;Config;TV

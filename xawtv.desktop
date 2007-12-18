@@ -2,5 +2,7 @@
 Type=Application
 Exec=/usr/bin/xawtv.wrapper
 Name=xawtv
+Name[ru]=Запуск xawtv
 Comment=xawtv
+Comment[ru]=Запуск xawtv
 Icon=xawtv
