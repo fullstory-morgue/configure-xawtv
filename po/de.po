@@ -38,6 +38,10 @@ msgid ""
 "Then it'll start xawtv."
 msgstr "Das Skript wird jetzt versuchen die nötigen Module mit diesen Parametern zu laden und anschließend xawtv starten."
 
+: configure_bttv:92
+msgid "ERROR: $0 needs root capabilities, please start it as root\n"
+msgstr ""
+
 #: configure_xawtv:55 configure_xawtv:74 configure_xawtv:82 configure_xawtv:89
 #: configure_xawtv:105
 #, sh-format

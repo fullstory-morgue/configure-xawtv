@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Application
-Categories=sidux;Config;TV
+Categories=Settings
 Exec=/usr/bin/configure_bttv
 
 Icon=sidux-bttv

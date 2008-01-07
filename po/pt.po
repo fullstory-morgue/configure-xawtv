@@ -37,6 +37,10 @@ msgid ""
 "Then it'll start xawtv."
 msgstr "Este programa vai tentar carregar os módulos do kernel necessários (com os respectivos parãmetros e posteriormente lançará o programa xawtv."
 
+#: configure_bttv:92
+msgid "ERROR: $0 needs root capabilities, please start it as root\n"
+msgstr "Erro: $0 só o super utilizador (root) pode usar este programa.\n"
+
 #: configure_xawtv:55 configure_xawtv:74 configure_xawtv:82 configure_xawtv:89
 #: configure_xawtv:105
 #, sh-format

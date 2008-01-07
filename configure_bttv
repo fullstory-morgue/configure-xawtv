@@ -79,13 +79,18 @@ ssft_display_message \
 	"$(eval_gettext "Initial setup of TV-card (Step \${STEP}/\${MAX})")" \
 	"$(gettext "The script will now try to load the necessary modules with this parameters . Then it'll start xawtv.")"
 
-su-me /sbin/rmmod -r bttv
-su-me /sbin/rmmod -r tuner
-su-me /sbin/modprobe bttv card="$CARD" tuner="$TUNER"
-
-su-me rm -f /etc/modprobe.d/bttv
-su-me echo "options bttv card=$CARD tuner=$TUNER" > /etc/modprobe.d/bttv
-[ ! "$FLL_DISTRO_MODE" = "live" ] && su-me update-modules -f &>/dev/null
-
+if [ -x "$(which su-to-root)" ]; then
+	su-to-root -c "/sbin/rmmod -r bttv ; \
+		/sbin/rmmod -r tuner; \
+		/sbin/modprobe bttv card=\"$CARD\" tuner=\"$TUNER\"; \
+		rm -f /etc/modprobe.d/bttv \
+		echo \"options bttv card=$CARD tuner=$TUNER\" > /etc/modprobe.d/bttv "
+	[ ! "$FLL_DISTRO_MODE" = "live" ] su-to-root -c update-modules -f &>/dev/null
+else
+	ssft_display_message \
+		"$(eval_gettext "Error")" \
+		"$(gettext ""ERROR: $0 needs root capabilities, please start it as root")"
+	exit 1
+fi
 exec xawtv.wrapper
 
