@@ -89,7 +89,7 @@ if [ -x "$(which su-to-root)" ]; then
 else
 	ssft_display_error \
 		"$(eval_gettext "Error")" \
-		"$(gettext ""ERROR: $0 needs root capabilities, please start it as root")"
+		"$(gettext "ERROR: $0 needs root capabilities, please start it as root")"
 	exit 1
 fi
 exec xawtv.wrapper

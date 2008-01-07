@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Type=Application
 Categories=Settings
-Exec=/usr/bin/configure_bttv
+Exec=su-to-root -X -c /usr/bin/configure_bttv
 
 Icon=sidux-bttv
 

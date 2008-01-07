@@ -1,8 +1,9 @@
-configure-xawtv (0.4.1) UNRELEASED; urgency=low
+configure-xawtv (0.4.1) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix syntax error.
+  * use su-to-root directly.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 07 Jan 2008 22:43:09 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 07 Jan 2008 23:10:30 +0100
 
 configure-xawtv (0.4.0) unstable; urgency=low
 
@@ -15,7 +16,7 @@ configure-xawtv (0.4.0) unstable; urgency=low
   * just recommend menu.
   * udev is no hard dependency, even though it's convenient.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 07 Jan 2008 22:41:06 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 07 Jan 2008 23:08:20 +0100
 
 configure-xawtv (0.3.6) unstable; urgency=low
 

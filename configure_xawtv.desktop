@@ -1,7 +1,7 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Application
-Exec=/usr/bin/xawtv.wrapper reconfigure
+Exec=su-to-root -X -c "/usr/bin/xawtv.wrapper reconfigure"
 Icon=sidux-xawtv
 Name=configure tv channels
 Name[de]=Fernsehsender konfigurieren
