@@ -87,7 +87,7 @@ if [ -x "$(which su-to-root)" ]; then
 		echo \"options bttv card=$CARD tuner=$TUNER\" > /etc/modprobe.d/bttv "
 	[ ! "$FLL_DISTRO_MODE" = "live" ] su-to-root -c update-modules -f &>/dev/null
 else
-	ssft_display_message \
+	ssft_display_error \
 		"$(eval_gettext "Error")" \
 		"$(gettext ""ERROR: $0 needs root capabilities, please start it as root")"
 	exit 1
