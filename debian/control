@@ -9,7 +9,7 @@ Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/configure-xawtv/trunk/
 
 Package: configure-xawtv
 Architecture: all
-Depends: xawtv, scantv, xterm | x-terminal-emulator, dialog, distro-defaults, udev, ssft, gettext, menu
-Recommends: zenity 
+Depends: xawtv, scantv, xterm | x-terminal-emulator, dialog, distro-defaults, ssft, gettext
+Recommends: zenity, menu
 Description: pre-configures xawtv for use with sidux
  General configuration Template for xawtv on live CDs.

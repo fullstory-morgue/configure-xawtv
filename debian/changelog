@@ -1,14 +1,15 @@
-configure-xawtv (0.3.7) UNRELEASED; urgency=low
-
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
+configure-xawtv (0.4.0) unstable; urgency=low
 
   [ Joaquim Boura ]
   * switch from custom su-me to generic su-to-root, adapt dependencies and
     menu files accordingly
   * use ssft-display-error instead of displa message
 
- -- Joaquim Boura <x-un-i@sidux.com>  Mon, 07 Jan 2008 22:36:13 +0100
+  [ Stefan Lippers-Hollmann ]
+  * just recommend menu.
+  * udev is no hard dependency, even though it's convenient.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 07 Jan 2008 22:41:06 +0100
 
 configure-xawtv (0.3.6) unstable; urgency=low
 
