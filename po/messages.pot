@@ -16,57 +16,57 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: configure_bttv:59 configure_bttv:71 configure_bttv:79
+#: configure-bttv:59 configure-bttv:71 configure-bttv:79
 #, sh-format
 msgid "Initial setup of TV-card (Step ${STEP}/${MAX})"
 msgstr ""
 
-#: configure_bttv:60
+#: configure-bttv:60
 msgid "Please select your TV card from the list."
 msgstr ""
 
-#: configure_bttv:72
+#: configure-bttv:72
 msgid "Please select the type of your tuner."
 msgstr ""
 
-#: configure_bttv:80
+#: configure-bttv:80
 msgid ""
 "The script will now try to load the necessary modules with this parameters . "
 "Then it'll start xawtv."
 msgstr ""
 
-: configure_bttv:92
+: configure-bttv:92
 msgid "ERROR: $0 needs root capabilities, please start it as root\n"
 msgstr ""
 
-#: configure_xawtv:55 configure_xawtv:74 configure_xawtv:82 configure_xawtv:89
-#: configure_xawtv:105
+#: configure-xawtv:55 configure-xawtv:74 configure-xawtv:82 configure-xawtv:89
+#: configure-xawtv:105
 #, sh-format
 msgid "Initial setup of xawtv (Step ${STEP}/${MAX})"
 msgstr ""
 
-#: configure_xawtv:56
+#: configure-xawtv:56
 msgid ""
 "The Installation was aborted. Do you want to start xawtv anyway ?\\n\\n(To "
 "deactivate the wrapper permanently create a ~/.xawtv or let this script "
 "finish normally.)"
 msgstr ""
 
-#: configure_xawtv:75
+#: configure-xawtv:75
 msgid "Please select your TV-norm"
 msgstr ""
 
-#: configure_xawtv:83
+#: configure-xawtv:83
 msgid "Please select a frequency table."
 msgstr ""
 
-#: configure_xawtv:90
+#: configure-xawtv:90
 msgid ""
 "The script will now try to find all available TV channels. This can take a "
 "while. Please be patient."
 msgstr ""
 
-#: configure_xawtv:106
+#: configure-xawtv:106
 msgid ""
 "The Installation is complete. xawtv will now be started. Happy watching!"
 msgstr ""

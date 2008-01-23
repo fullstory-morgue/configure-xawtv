@@ -19,57 +19,57 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
-#: configure_bttv:59 configure_bttv:71 configure_bttv:79
+#: configure-bttv:59 configure-bttv:71 configure-bttv:79
 #, sh-format
 msgid "Initial setup of TV-card (Step ${STEP}/${MAX})"
 msgstr "Einrichtung der Fernsehkarte (Step ${STEP}/${MAX})"
 
-#: configure_bttv:60
+#: configure-bttv:60
 msgid "Please select your TV card from the list."
 msgstr "Bitte wählen Sie Ihre Fernsehkarte aus der Liste aus."
 
-#: configure_bttv:72
+#: configure-bttv:72
 msgid "Please select the type of your tuner."
 msgstr "Bitte wählen Sie den Typ Ihres Tuners."
 
-#: configure_bttv:80
+#: configure-bttv:80
 msgid ""
 "The script will now try to load the necessary modules with this parameters . "
 "Then it'll start xawtv."
 msgstr "Das Skript wird jetzt versuchen die nötigen Module mit diesen Parametern zu laden und anschließend xawtv starten."
 
-: configure_bttv:92
+: configure-bttv:92
 msgid "ERROR: $0 needs root capabilities, please start it as root\n"
 msgstr ""
 
-#: configure_xawtv:55 configure_xawtv:74 configure_xawtv:82 configure_xawtv:89
-#: configure_xawtv:105
+#: configure-xawtv:55 configure-xawtv:74 configure-xawtv:82 configure-xawtv:89
+#: configure-xawtv:105
 #, sh-format
 msgid "Initial setup of xawtv (Step ${STEP}/${MAX})"
 msgstr "Einrichtung von xawtv (Step ${STEP}/${MAX})"
 
-#: configure_xawtv:56
+#: configure-xawtv:56
 msgid ""
 "The Installation was aborted. Do you want to start xawtv anyway ?\\n\\n(To "
 "deactivate the wrapper permanently create a ~/.xawtv or let this script "
 "finish normally.)"
 msgstr "Die Installation wurde abgebrochen. Wollen Sie xawtv trotzdem starten?\\n\\n(Um den Wrapper permanent zu deaktivieren legen Sie bitte eine Datei ~/.xawtv an oder lassen Sie dieses Skript einmal vollständig durchlaufen.)"
 
-#: configure_xawtv:75
+#: configure-xawtv:75
 msgid "Please select your TV-norm"
 msgstr "Bitte wählen Sie ihre TV-Norm aus."
 
-#: configure_xawtv:83
+#: configure-xawtv:83
 msgid "Please select a frequency table."
 msgstr "Bitte wählen Sie eine Frequenztabelle aus."
 
-#: configure_xawtv:90
+#: configure-xawtv:90
 msgid ""
 "The script will now try to find all available TV channels. This can take a "
 "while. Please be patient."
 msgstr "Das Skript wird jetzt versuchen alle verfügbaren Fernsehsender zu finden. Dies kann eine Weile dauern. Bitte haben Sie Geduld."
 
-#: configure_xawtv:106
+#: configure-xawtv:106
 msgid "The Installation is complete. xawtv will now be started. Happy watching!"
 msgstr "Die Installation ist abgeschlossen. xawtv wird nun gestartet. Fröhliches Fernsehgucken!"
 
