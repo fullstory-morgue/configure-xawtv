@@ -1,14 +1,21 @@
 configure-xawtv (0.4.3) UNRELEASED; urgency=low
 
-  [ Stefan Lippers-Hollmann ]
-  * NOT RELEASED YET
-
   [ Bernard Gray ]
   * add new svg icon, update copyright
   * add new bttv svg icon
-   
 
- -- Bernard Gray <bernard.gray@gmail.com>  Wed, 23 Jan 2008 17:36:24 +1100
+  [ Stefan Lippers-Hollmann ]
+  * remove obsolete artwork.
+  * rework file design.
+  * rename configure_* to configure-*.
+  * clean up XDG desktop files.
+  * adapt debian menu system files.
+  * add create-icons target in debian/rules.
+  * fix install targets.
+  * rework debian/copyright to be machine readable.
+  * rework build and runtime dependencies.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 23 Jan 2008 17:19:00 +0100
 
 configure-xawtv (0.4.2) unstable; urgency=low
 

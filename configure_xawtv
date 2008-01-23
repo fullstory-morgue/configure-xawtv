@@ -22,7 +22,7 @@ else
 	exit 1
 fi
 
-TEXTDOMAIN="configure_xawtv"
+TEXTDOMAIN="configure-xawtv"
 export TEXTDOMAIN
 TEXTDOMAINDIR=/usr/share/locale
 export TEXTDOMAINDIR
@@ -34,7 +34,7 @@ clean_exit() {
 
 trap clean_exit EXIT
 
-TMP="$(mktemp -p /tmp/ configure_xawtv-XXXXXXXXXX)"
+TMP="$(mktemp -p /tmp/ configure-xawtv-XXXXXXXXXX)"
 
 if [ "$1" = "scantv" ]; then
 	shift

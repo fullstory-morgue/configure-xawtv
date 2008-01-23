@@ -2,14 +2,14 @@ Source: configure-xawtv
 Section: x11
 Priority: optional
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Build-Depends: cdbs, debhelper (>= 6), gettext, imagemagick
+Build-Depends: cdbs, debhelper (>= 6), gettext
 Standards-Version: 3.7.3
 Vcs-Svn: svn://svn.berlios.de/fullstory/configure-xawtv/trunk
 Vcs-Browser: http://svn.berlios.de/wsvn/fullstory/configure-xawtv/trunk/
 
 Package: configure-xawtv
 Architecture: all
-Depends: xawtv, scantv, xterm | x-terminal-emulator, dialog, distro-defaults, ssft, gettext
-Recommends: zenity, menu
+Depends: xawtv, scantv, xterm | x-terminal-emulator, distro-defaults, ssft, gettext
+Recommends: zenity | dialog, menu
 Description: pre-configures xawtv for use with sidux
  General configuration Template for xawtv on live CDs.

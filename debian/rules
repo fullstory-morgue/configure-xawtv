@@ -4,17 +4,31 @@ include /usr/share/cdbs/1/rules/debhelper.mk
 
 build/configure-xawtv::
 	# Gettext Internationalisation (i18n)
-	DESTDIR=$(CURDIR)/debian/configure-xawtv $(CURDIR)/po/make_po.sh configure_xawtv.mo
-	DESTDIR=$(CURDIR)/debian/configure-xawtv $(CURDIR)/po/make_po.sh configure_bttv.mo
+	DESTDIR=$(CURDIR)/debian/configure-xawtv $(CURDIR)/po/make_po.sh configure-xawtv.mo
+	DESTDIR=$(CURDIR)/debian/configure-xawtv $(CURDIR)/po/make_po.sh configure-bttv.mo
 
-install/configure-xawtv::
-	mkdir -p debian/configure-xawtv/usr/share/pixmaps
-	convert icons/hicolor/32x32/apps/sidux-bttv.png \
-		debian/configure-xawtv/usr/share/pixmaps/sidux-bttv.xpm
-	convert icons/hicolor/16x16/apps/sidux-bttv.png \
-		debian/configure-xawtv/usr/share/pixmaps/sidux-bttv-16.xpm
-	convert icons/hicolor/32x32/apps/sidux-xawtv.png \
-		debian/configure-xawtv/usr/share/pixmaps/sidux-xawtv.xpm
-	convert icons/hicolor/16x16/apps/sidux-xawtv.png \
-		debian/configure-xawtv/usr/share/pixmaps/sidux-xawtv-16.xpm
+create-icons::
+	# requires inkscape and imagemagick to be installed
+	@if [ ! -x /usr/bin/convert ]; then \
+		echo "ERROR: imagemagick not installed!" ; \
+		false ; \
+	fi
+	@if [ ! -x /usr/bin/inkscape ]; then \
+		echo "ERROR: inkscape not installed!" ; \
+		false ; \
+	fi
+	
+	for f in configure-bttv configure-xawtv; do \
+		[ -r  $(CURDIR)/icons/$${f}.svg ] || false ; \
+		for i in 16 22 32 48 64 128; do \
+			mkdir -p "icons/hicolor.$${f}/$${i}x$${i}/apps" ; \
+			inkscape --export-width=$${i} \
+				 --export-height=$${i} \
+				 --export-png="$(CURDIR)/icons/hicolor.$${f}/$${i}x$${i}/apps/$${f}.png" \
+					$(CURDIR)/icons/$${f}.svg ; \
+		done ; \
+		mkdir -p "icons/pixmaps.$${f}" ; \
+		convert icons/hicolor.$${f}/32x32/apps/$${f}.png icons/pixmaps.$${f}/$${f}.xpm ; \
+		convert icons/hicolor.$${f}/16x16/apps/$${f}.png icons/pixmaps.$${f}/$${f}-16.xpm ; \
+	done
 

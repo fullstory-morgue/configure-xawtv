@@ -2,12 +2,12 @@
 Encoding=UTF-8
 Type=Application
 Exec=su-to-root -X -c "/usr/bin/xawtv.wrapper reconfigure"
-Icon=sidux-xawtv
-Name=configure tv channels
-Name[de]=Fernsehsender konfigurieren
-Name[ru]=Установка телеканалов
-Name[es]=Configurar los canales de TV
-Name[pt]=Configurar os canais de TV
-Name[pt_BR]=Configurar os canais de TV
-
-Categories=Settings
+Icon=configure-xawtv
+Name=configure-xawtv
+GenericName=configure tv channels
+GenericName[de]=Fernsehsender konfigurieren
+GenericName[ru]=Установка телеканалов
+GenericName[es]=Configurar los canales de TV
+GenericName[pt]=Configurar os canais de TV
+GenericName[pt_BR]=Configurar os canais de TV
+Categories=Settings;

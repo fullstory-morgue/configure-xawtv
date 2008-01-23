@@ -1,15 +1,13 @@
 [Desktop Entry]
 Encoding=UTF-8
 Type=Application
-Categories=Settings
-Exec=su-to-root -X -c /usr/bin/configure_bttv
-
-Icon=sidux-bttv
-
-Name=Configure TV card (bttv-chipset)
-Name[de]=Fernsehkarte konfigurieren (bttv-Chipsatz)
-Name[ru]=Установка TV-тюнера (bttv-Chipsatz)
-Name[es]=Configurar la tarjeta de televisión (bttv)
-Name[pt]=Configuração da placa de TV (bttv-Chip)
-Name[pt_BR]=Configuração da placa de TV (bttv-Chip)
-
+Exec=su-to-root -X -c /usr/bin/configure-bttv
+Icon=configure-bttv
+Name=configure-bttv
+GenericName=Configure TV card
+GenericName[de]=Fernsehkarte konfigurieren
+GenericName[ru]=Установка TV-тюнера
+GenericName[es]=Configurar la tarjeta de televisión
+GenericName[pt]=Configuração da placa de TV
+GenericName[pt_BR]=Configuração da placa de TV
+Categories=Settings;

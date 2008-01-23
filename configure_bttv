@@ -21,7 +21,7 @@ else
         exit 1
 fi
 
-TEXTDOMAIN="configure_bttv"
+TEXTDOMAIN="configure-bttv"
 export TEXTDOMAIN
 TEXTDOMAINDIR=/usr/share/locale
 export TEXTDOMAINDIR

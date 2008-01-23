@@ -2,9 +2,21 @@ This package was debianized by Fabian Franz <knx-xawtv@fabian-franz.de> on
 Mon, 14 Apr 2003 22:57:39 +0200.
 
 Upstream Author: Fabian Franz <knx-xawtv@fabian-franz.de>
-                 icons: (C) 2007 cathbard <cathbard@gmail.com>
 
-Copyright: GPL, see /usr/share/common-licenses
+Files: *
+Copyright: (C) 2003 Fabian Franz <knx-xawtv@fabian-franz.de>
+           (C) 2004 Klaus Knopper <knopper@knopper.net>
+           (C) 2003-2008 Stefan Lippers-Hollmann <s.l-h@gmx.de>
+           (C) 2007 Horst Tritremmel <hjt@sidux.com>
+License: GPL-2
+  The capi-isdnconf program is licensed under the GNU General Public License,
+  version 2.
+
+Files: debian/*
+Copyright: (C) 2004-2008 Stefan Lippers-Hollmann <s.l-h@gmx.de>
+License: GPL-2
+  The Debian packaging information is licensed under the GNU General
+  Public License, version 2.
 
 Files: icons/*
 Copyright: (C) 2008 Bernard Gray <bernard.gray@gmail.com>
