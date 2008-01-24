@@ -1,9 +1,8 @@
-configure-xawtv (0.4.4) UNRELEASED; urgency=low
+configure-xawtv (0.4.4) unstable; urgency=low
 
-  * NOT RELEASED YET
   * we don't use a subdirectory in applnk anymore, remove bogus .directoy.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 23 Jan 2008 17:37:07 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 24 Jan 2008 12:23:37 +0100
 
 configure-xawtv (0.4.3) unstable; urgency=low
 
