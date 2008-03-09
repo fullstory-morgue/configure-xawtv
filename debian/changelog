@@ -1,3 +1,9 @@
+configure-xawtv (0.4.7) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 09 Mar 2008 20:51:08 +0100
+
 configure-xawtv (0.4.6) unstable; urgency=low
 
   * corrected the pt language files. Thanks to Rui Umbelino (VaMPiRiC_CRoW)
