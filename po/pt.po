@@ -1,17 +1,19 @@
+# translation of pt.po to
 # Portuguese translations for PACKAGE package.
 # Copyright (C) 2007 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # x-un-i <x-un-i@sidux.com>, 2007.
 # Joaquim Boura <x-un-i@sidux.com>, 2007.
+#  Rui Umbelino (VaMPiRiC_CRoW), 2008
 msgid ""
 msgstr ""
-"Project-Id-Version: de\n"
+"Project-Id-Version: pt\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-08-02 15:09+0200\n"
-"PO-Revision-Date: 2007-08-02 15:31+0200\n"
-"Last-Translator: Joaquim Boura <x-un-i@sidux.com>\n"
-"Language-Team: Portuguese\n"
+"PO-Revision-Date: 2008-03-08 16:13+0000\n"
+"Last-Translator: \n"
+"Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,25 +23,25 @@ msgstr ""
 #: configure-bttv:59 configure-bttv:71 configure-bttv:79
 #, sh-format
 msgid "Initial setup of TV-card (Step ${STEP}/${MAX})"
-msgstr "Configuração inicial da placa de televisão (Step ${STEP}/${MAX})"
+msgstr "Configuração inicial da placa de TV (Step ${STEP}/${MAX})"
 
 #: configure-bttv:60
 msgid "Please select your TV card from the list."
-msgstr "Por favor, escolha a placa de tv na lista."
+msgstr "Por favor, seleccione a placa de TV da lista."
 
 #: configure-bttv:72
 msgid "Please select the type of your tuner."
-msgstr "Escolha a tzpo do sintonizador."
+msgstr "Por favor, seleccione o tipo de sintonizador."
 
 #: configure-bttv:80
 msgid ""
 "The script will now try to load the necessary modules with this parameters . "
 "Then it'll start xawtv."
-msgstr "Este programa vai tentar carregar os módulos do kernel necessários (com os respectivos parãmetros e posteriormente lançará o programa xawtv."
+msgstr "O programa tentará carregar os módulos do kernel necessários com estes parâmetros . Depois irá iniciar o programa xawtv."
 
 #: configure-bttv:92
 msgid "ERROR: $0 needs root capabilities, please start it as root\n"
-msgstr "Erro: $0 só o super utilizador (root) pode usar este programa.\n"
+msgstr "ERRO: $0 necessita de capacidades de super-utilizador (root), por favor, inicie como super-utilizador(root)\n"
 
 #: configure-xawtv:55 configure-xawtv:74 configure-xawtv:82 configure-xawtv:89
 #: configure-xawtv:105
@@ -52,23 +54,23 @@ msgid ""
 "The Installation was aborted. Do you want to start xawtv anyway ?\\n\\n(To "
 "deactivate the wrapper permanently create a ~/.xawtv or let this script "
 "finish normally.)"
-msgstr "A instalação foi interrompida. Quer lançar o programa xawtv?\\n\\n(para desactivar o wrappe crie o ficheiro ~/.xawtv ou deixe correr este programa completamente até ao fim.)"
+msgstr "A instalação foi interrompida. Deseja iniciar o xawtv de qualquer forma?\\n\\n(Para desactivar o wrapper permanentemente crie o ficheiro ~/.xawtv ou deixe este programa finalizar normalmente.)"
 
 #: configure-xawtv:75
 msgid "Please select your TV-norm"
-msgstr "Escolha a sua norma de TV."
+msgstr "Por favor, seleccione a sua norma de TV."
 
 #: configure-xawtv:83
 msgid "Please select a frequency table."
-msgstr "Escolha a tabella de frequência."
+msgstr "Por favor, seleccione a tabela de frequência."
 
 #: configure-xawtv:90
 msgid ""
 "The script will now try to find all available TV channels. This can take a "
 "while. Please be patient."
-msgstr "Es programa tentará encontrar os canais de televisão disponíveis. Isto pode durar um pouco, tenha por isso paciencia."
+msgstr "O programa tentará encontrar os canais de TV disponíveis. Isto pode durar um pouco. Por favor, seja paciente."
 
 #: configure-xawtv:106
 msgid "The Installation is complete. xawtv will now be started. Happy watching!"
-msgstr "A instalação está completa e o programa xawtv vai ser lançado. Bom programa!!"
+msgstr "A instalação está completa e o programa xawtv irá ser iniciadoo. Bom programa!"
 
