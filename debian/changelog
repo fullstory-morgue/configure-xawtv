@@ -1,8 +1,10 @@
-configure-xawtv (0.4.7) UNRELEASED; urgency=low
+configure-xawtv (0.4.7) ORPHANED; urgency=low
 
   * NOT RELEASED YET
+  * ORPHAN PACKAGE, obsolete.
+  * switch to the new dh implementation of debhelper 7.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun, 09 Mar 2008 20:51:08 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 07 May 2008 01:01:33 +0200
 
 configure-xawtv (0.4.6) unstable; urgency=low
 
