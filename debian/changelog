@@ -3,6 +3,7 @@ configure-xawtv (0.4.7) ORPHANED; urgency=low
   * NOT RELEASED YET
   * ORPHAN PACKAGE, obsolete.
   * switch to the new dh implementation of debhelper 7.
+  * refresh SVG graphics, shut up inkscape's migration from old versions.
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Wed, 07 May 2008 01:01:33 +0200
 
